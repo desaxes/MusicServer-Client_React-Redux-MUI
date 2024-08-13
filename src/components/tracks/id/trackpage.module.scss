@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .trackBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        align-self: center;
+        width: 60%;
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            // justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 30px;
+
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 12px;
+            }
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                max-Width: 500px;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 24px;
+
+                p {
+                    margin: 3px;
+                }
+            }
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            font-size: 24px;
+            width: 100%;
+            position: relative;
+
+            p {
+                margin: 0;
+            }
+
+            .words {
+                font-size: 20px;
+            }
+
+            .commentBlock {
+                margin-top: 30px;
+                color: black;
+                .sendCom {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .input {
+                        width: 100%;
+                        margin-top: 10px;
+                    }
+                    .button{
+                        margin-top: 10px;
+                    }
+                }
+                .com {
+                    display: flex;
+                    flex-direction: column;
+
+                }
+            }
+        }
+    }
+}

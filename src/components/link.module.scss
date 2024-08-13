@@ -1,0 +1,16 @@
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    display:flex;
+    justify-content:center;
+    margin:80px 0;
+    transition: 0.3s;
+    padding:20px 0;
+    border-radius:20px;
+    cursor: pointer;
+    &:hover{
+        background-color:red;
+        color:white;
+    }
+}
