@@ -58,22 +58,37 @@
             .commentBlock {
                 margin-top: 30px;
                 color: black;
+
                 .sendCom {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     .input {
                         width: 100%;
                         margin-top: 10px;
                     }
-                    .button{
+
+                    .button {
                         margin-top: 10px;
                     }
                 }
+
                 .com {
                     display: flex;
                     flex-direction: column;
-
+                    margin: 20px 0;
+                    font-weight: 500;
+                    .comname {
+                        text-decoration: underline;
+                        font-size: 20px;
+                    }
+                    .comtext {
+                        font-size: 16px;
+                        text-decoration: none;
+                        font-style: italic;
+                        margin-left: 15px;
+                    }
                 }
             }
         }

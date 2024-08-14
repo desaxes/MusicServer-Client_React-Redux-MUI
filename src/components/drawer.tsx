@@ -20,7 +20,7 @@ const DrawerComponent = () => {
     )
     return (
         <div>
-            <Button variant="contained" color="error" size="large" onClick={toggleDrawer(true)}>Menu</Button>
+            <Button variant="contained" color="secondary" size="large" onClick={toggleDrawer(true)}>Menu</Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>

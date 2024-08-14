@@ -1,6 +1,7 @@
 import { ITrack, TrackActions, TrackActionTypes } from "../../types/track.ts";
 import axios from "axios";
 import { Dispatch } from "redux";
+import { ObjectId } from 'mongoose';
 
 // export const fetchTracks = (payload:ITrack[]): TrackActions => {
 //     return async { type: TrackActionTypes.FETCH_TRACKS, payload }
@@ -97,11 +98,11 @@ export const fetchComments = (id: string) => {
         }
     }
 }
-export const createComment = (formData: any) => {
+export const createComment = (username: string, text: string, trackId: any) => {
     return async (dispatch: Dispatch<TrackActions>) => {
         try {
-            await axios.post('http://localhost:5000/tracks/comment', formData)
-            const response = await axios.get('http://localhost:5000/tracks/comment/' + formData.trackId)
+            await axios.post('http://localhost:5000/tracks/comment', { username, text, trackId })
+            const response = await axios.get('http://localhost:5000/tracks/comment/' + trackId)
             dispatch({
                 type: TrackActionTypes.FETCH_COMMENTS,
                 payload: response.data

@@ -13,7 +13,7 @@ const Tracks = () => {
                         <h1>
                             Tracks
                         </h1>
-                        <Button onClick={() => navigate('/MusicServer/create')} variant="contained" color='error'>Load</Button>
+                        <Button onClick={() => navigate('/MusicServer/create')} variant="contained" color='secondary'>Load</Button>
                     </Grid>
                 </Box>
             </Card>

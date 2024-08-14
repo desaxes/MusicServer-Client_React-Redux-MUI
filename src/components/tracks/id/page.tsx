@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import s from './trackpage.module.scss'
-import { Button, Input, TextField } from '@mui/material'
+import { Button, Card, Input, TextField } from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector.ts'
 import { useActions } from '../../../hooks/useActions.ts'
@@ -34,11 +34,7 @@ const TrackPage = () => {
     const text = useInput('')
     const addComment = () => {
         if (params.id) {
-            const formData = new FormData()
-            formData.append('username', username.value)
-            formData.append('text', text.value)
-            formData.append('trackId', params.id)
-            createComment(formData)
+            createComment(username.value, text.value, params.id)
         }
     }
     console.log(currentComments)
@@ -66,10 +62,16 @@ const TrackPage = () => {
                         </div>
                         <div>
                             {currentComments.map(c =>
-                                <div className={s.com}>
-                                    {c.username}
-                                    {c.text}
-                                </div>
+                                <Card variant='outlined' style={{
+                                    margin:'10px', padding:'0 10px',
+                                    background:'linear-gradient(90deg, rgba(254,227,255,1) 0%, rgba(234,210,255,1) 37%, rgba(255,130,238,1) 63%, rgba(207,140,255,1) 100%)',
+                                    border:'1px solid black',borderRadius:'20px'
+                                    }}>
+                                    <div className={s.com}>
+                                        <div className={s.comname}> {c.username}</div>
+                                        <div className={s.comtext}> {c.text}</div>
+                                    </div>
+                                </Card>
                             )}
                         </div>
                     </div>
