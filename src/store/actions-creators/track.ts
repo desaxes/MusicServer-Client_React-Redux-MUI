@@ -1,7 +1,6 @@
 import { ITrack, TrackActions, TrackActionTypes } from "../../types/track.ts";
 import axios from "axios";
 import { Dispatch } from "redux";
-import { ObjectId } from 'mongoose';
 
 // export const fetchTracks = (payload:ITrack[]): TrackActions => {
 //     return async { type: TrackActionTypes.FETCH_TRACKS, payload }
@@ -14,6 +13,23 @@ export const fetchTracks = () => {
     return async (dispatch: Dispatch<TrackActions>) => {
         try {
             const response = await axios.get('http://localhost:5000/tracks')
+            dispatch({
+                type: TrackActionTypes.FETCH_TRACKS,
+                payload: response.data
+            })
+        }
+        catch (e) {
+            dispatch({
+                type: TrackActionTypes.FETCH_TRACKS_ERROR,
+                payload: 'Error'
+            })
+        }
+    }
+}
+export const search = (query: string) => {
+    return async (dispatch: Dispatch<TrackActions>) => {
+        try {
+            const response = await axios.get('http://localhost:5000/tracks/search?query=' + query)
             dispatch({
                 type: TrackActionTypes.FETCH_TRACKS,
                 payload: response.data
@@ -107,6 +123,19 @@ export const createComment = (username: string, text: string, trackId: any) => {
                 type: TrackActionTypes.FETCH_COMMENTS,
                 payload: response.data
             })
+        }
+        catch (e) {
+            dispatch({
+                type: TrackActionTypes.FETCH_TRACKS_ERROR,
+                payload: 'Error'
+            })
+        }
+    }
+}
+export const addListen = (id: string) => {
+    return async (dispatch: Dispatch<TrackActions>) => {
+        try {
+            await axios.post('http://localhost:5000/tracks/listen/' + id)
         }
         catch (e) {
             dispatch({

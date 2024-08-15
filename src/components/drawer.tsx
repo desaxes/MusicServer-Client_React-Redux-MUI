@@ -10,17 +10,17 @@ const DrawerComponent = () => {
         setOpen(newOpen);
     };
     const DrawerList = (
-        <Box  sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
-            <List style={{padding:'20px'}}>
+        <Box sx={{ width: 300 }} role="presentation" onMouseLeave={toggleDrawer(false)}>
+            <List style={{ padding: '20px' }}>
                 {['Main', 'Tracks', 'Albums'].map((text, index) => (
-                    <A to={'/' + text.toLowerCase()} text={text}/>
+                    <A to={'/' + text.toLowerCase()} text={text} toggleDrawer={toggleDrawer}/>
                 ))}
             </List>
         </Box>
     )
     return (
         <div>
-            <Button variant="contained" color="secondary" size="large" onClick={toggleDrawer(true)}>Menu</Button>
+            <Button onMouseEnter={toggleDrawer(true)} variant="contained" color="secondary" size="large" >Menu</Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>

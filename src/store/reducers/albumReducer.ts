@@ -2,7 +2,7 @@ import { AlbumActions, AlbumActionTypes, AlbumState, IAlbum } from '../../types/
 import { ITrack } from '../../types/track.ts';
 
 const InititalState: AlbumState = {
-    tracks: [],
+    albumTracks: [],
     currentAlbum: null,
     albums: [],
     error: ''
@@ -10,7 +10,7 @@ const InititalState: AlbumState = {
 export const albumReducer = (state = InititalState, action: AlbumActions): AlbumState => {
     switch (action.type) {
         case AlbumActionTypes.FETCH_TRACKS_BY_ALBUM: {
-            return { ...state, error: '', tracks: action.payload }
+            return { ...state, error: '', albumTracks: action.payload }
         }
         case AlbumActionTypes.FETCH_ALBUMS_ERROR: {
             return { ...state, error: action.payload }

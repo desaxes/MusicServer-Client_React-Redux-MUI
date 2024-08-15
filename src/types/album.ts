@@ -5,10 +5,10 @@ export interface IAlbum {
     name: string,
     desc: string,
     picture: string,
-    tracks: ITrack[]
+    tracks: string[]
 }
 export interface AlbumState {
-    tracks: ITrack[],
+    albumTracks: ITrack[],
     albums: IAlbum[],
     currentAlbum: IAlbum | null,
     error: string

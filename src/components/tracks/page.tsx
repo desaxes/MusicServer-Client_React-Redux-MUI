@@ -1,7 +1,8 @@
-import { Box, Button, Card, Grid } from "@mui/material";
+import { Box, Button, Card, Grid, TextField } from "@mui/material";
 import TrackList from "../TrackList.tsx";
-import React from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { useActions } from "../../hooks/useActions.ts";
 const Tracks = () => {
     const navigate = useNavigate()
 
@@ -17,6 +18,7 @@ const Tracks = () => {
                     </Grid>
                 </Box>
             </Card>
+
             <TrackList />
         </Grid>
     )

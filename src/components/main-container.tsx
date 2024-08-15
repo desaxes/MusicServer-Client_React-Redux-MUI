@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import DrawerComponent from "./drawer.tsx"
 import s from "./main-container.module.scss"
 import Player from "./player.tsx"
+import logo from '../img/logo.png'
 import { Navigate, Route, Routes } from 'react-router-dom'
 const Tracks = React.lazy(() => import('./tracks/page.tsx'))
 const Main = React.lazy(() => import('./main/page.tsx'))
@@ -11,11 +12,17 @@ const CreateAlbum = React.lazy(() => import('./albums/create/page.tsx'))
 const Albums = React.lazy(() => import('./albums/page.tsx'))
 const AlbumTracks = React.lazy(() => import('./albums/id/page.tsx'))
 const MainContainer = ({ children }: any) => {
-
     return (
         <div className={s.newAmsterdamRegular}>
-            <div className={s.navbar}>
+            <div className={s.navbar} style={{
+                display: 'flex'
+            }}>
                 <DrawerComponent />
+                <div style={{ margin: '0 auto', fontSize: '24px', color: "violet", display: 'flex', alignItems: 'center' }}>
+                    <img style={{ width: '80px', height: '80px' }} src={logo} alt="logo" />
+                    <p>MUSICSERVER</p>
+                    <img style={{ width: '80px', height: '80px' }} src={logo} alt="logo" />
+                </div>
             </div>
             <div className={s.container}>
                 <Suspense>
